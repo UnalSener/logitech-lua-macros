@@ -13,7 +13,7 @@ local guns = {
     ["TwitchFamas"] = {-1.30, 25.00},
     ["FuzeAce"] = {-1.12, 19.00},
     ["DeimosPistol"] = {-0.47, 8.00},
-    ["DeimosSilah"] = {-0.82, 13.20},
+    ["DeimosWeapon"] = {-0.82, 13.20},
     ["Valkyrie"] = {-0.30, 7.50},
     ["AzamiSMG_Kapkan"] = {-0.5, 8.37},
     ["AlibiSMG"] = {0.75, 6.5},
@@ -54,7 +54,7 @@ local guns = {
     ["Goyo"] = {-0.90, 27.30},
     ["Sens"] = {0, 18.00},
     ["Blackbeard"] = {0.6, 9.00},
-    ["CavSilah"] = {-0.25, 4.10},
+    ["CavWeapon"] = {-0.25, 4.10},
     ["CavPistol"] = {1.20, 7.60},
     ["Aruni"] = {-1.00, 12.00},
     ["Jager"] = {-0.55, 7.70},
@@ -106,7 +106,7 @@ function OnEvent(event, arg)
     if IsKeyLockOn("capslock") and IsMouseButtonPressed(3) and event == "MOUSE_BUTTON_PRESSED" and arg == 1 then
         local gun = guns[selectedGun]
         if not gun then
-            OutputLogMessage("No recoil data found for the selected weapon '%s'!\n", selectedGun)
+            OutputLogMessage("No recoil data found for the selected weapon '%s'\n", selectedGun)
             return
         end
         if gun then
