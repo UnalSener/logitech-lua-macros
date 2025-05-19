@@ -99,12 +99,16 @@ function OnEvent(event, arg)
             activeGunIndex = 1
             selectedGun = selectedGun1
         end
-        OutputLogMessage("Seçilen silah: %s\n", selectedGun)
+        OutputLogMessage("Selected Gun: %s\n", selectedGun)
     end
 
     -- Recoil (CapsLock on + Right click + Left click)
     if IsKeyLockOn("capslock") and IsMouseButtonPressed(3) and event == "MOUSE_BUTTON_PRESSED" and arg == 1 then
         local gun = guns[selectedGun]
+        if not gun then
+            OutputLogMessage("No recoil data found for the selected weapon '%s'!\n", selectedGun)
+            return
+        end
         if gun then
             local mover = moveWithFraction(gun[1], gun[2])
             repeat
